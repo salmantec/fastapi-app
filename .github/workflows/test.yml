@@ -25,11 +25,12 @@ jobs:
       - name: Install python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: '3.11.4'
         # Install dependencies
         # As previous step installs PIP as inbuilt, here uses poetry for venv
       - name: Install dependencies
         run: |
+          pip install --upgrade pip
           pip3 install poetry
           poetry shell
           poetry install
