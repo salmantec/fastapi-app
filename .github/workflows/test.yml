@@ -27,9 +27,10 @@ jobs:
         with:
           python-version: '3.10'
         # Install dependencies
-        # As previous step installs PIP, POETRY as inbuilt, here uses poetry for venv
+        # As previous step installs PIP as inbuilt, here uses poetry for venv
       - name: Install dependencies
         run: |
+          pip3 install poetry
           poetry shell
           poetry install
         # Test the unit test cases
