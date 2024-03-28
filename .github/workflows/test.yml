@@ -34,10 +34,8 @@ jobs:
           pip3 install poetry
           rm -rf .venv && poetry env remove --all
           poetry config virtualenvs.in-project true
-          ls
           rm -rf poetry.lock
-          ls
           poetry install
         # Test the unit test cases
       - name: Run unit test cases
-        run: pytest tests
+        run: poetry run pytest tests
