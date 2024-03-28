@@ -38,4 +38,4 @@ jobs:
           poetry install
         # Test the unit test cases
       - name: Run unit test cases
-        run: poetry run pytest tests
+        run: poetry run pytest tests/
