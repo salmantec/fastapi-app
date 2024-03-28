@@ -32,8 +32,8 @@ jobs:
         run: |
           pip install --upgrade pip
           pip3 install poetry
-          virtualenvs-create: true
-          virtualenvs-in-project: true
+          rm -rf .venv && poetry env remove --all
+          poetry config virtualenvs.in-project true
           poetry shell
           poetry install
         # Test the unit test cases
