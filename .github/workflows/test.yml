@@ -32,7 +32,8 @@ jobs:
         run: |
           pip install --upgrade pip
           pip3 install poetry
-          cd fastapi-app
+          pwd
+          ls
           rm -rf .venv && poetry env remove --all
           poetry config virtualenvs.in-project true
           poetry install
