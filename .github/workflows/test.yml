@@ -32,10 +32,9 @@ jobs:
         run: |
           pip install --upgrade pip
           pip3 install poetry
-          pwd
-          ls
           rm -rf .venv && poetry env remove --all
           poetry config virtualenvs.in-project true
+          rm -rf poetry.lock
           poetry install
         # Test the unit test cases
       - name: Run unit test cases
