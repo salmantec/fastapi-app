@@ -39,3 +39,34 @@ jobs:
         # Test the unit test cases
       - name: Run unit test cases
         run: poetry run pytest tests/
+
+  # Deploy job
+  deploy:
+    # Runner
+    runs-on: ubuntu-latest
+
+    # Steps
+    steps:
+      # Get the code into runner (Machine)
+      - name: Get code
+        uses: actions/checkout@v4
+        # Don't need to install Python again as our runner has already installed it.
+        # For more details, check runner page in Github
+        # But, here adding install python steps just sake of learning purpose
+      - name: Install python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.4'
+        # Install dependencies
+        # As previous step installs PIP as inbuilt, here uses poetry for venv
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip3 install poetry
+          rm -rf .venv && poetry env remove --all
+          poetry config virtualenvs.in-project true
+          rm -rf poetry.lock
+          poetry install
+        # Mock deployment
+      - name: Deploy
+        run: echo "Deploying...."
