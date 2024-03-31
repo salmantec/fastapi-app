@@ -42,8 +42,6 @@ jobs:
 
   # Deploy job
   deploy:
-    # Depends on another job to finish first, mention another job name here
-    needs: test
     # Runner
     runs-on: ubuntu-latest
 
