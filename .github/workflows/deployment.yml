@@ -1,5 +1,5 @@
 # Name of the workflow
-name: Test unit test cases
+name: Deployment
 
 # When should this workflow run
 on:
