@@ -7,6 +7,9 @@ on:
   # Runs the workflow when someone pushed into the branch
   push:
 
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
 # Jobs under this workflow
 jobs:
   # Name of the Job
