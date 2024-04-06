@@ -1,0 +1,42 @@
+# Name of the workflow
+name: Deployment
+
+# When should this workflow run
+on:
+  workflow_dispatch:
+
+  push:
+    branches:
+      - main
+
+# Jobs under this workflow
+jobs:
+  # Name of the job
+  deploy:
+    # Runner
+    runs-on: ubuntu-latest
+
+    # Step / tasks
+    steps:
+      # Get the code into runner
+      - name: Get code
+        uses: actions/checkout@v4
+      # Don't need to install Python again as our runner has already installed it
+      # For more details, check runner page in Github
+      # But, here adding install python steps just sake of learning purpose
+      - name: Install python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.4'
+      # Install dependencies
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip3 install poetry
+          rm -rf .venv && poetry env remove --all
+          poetry config virtualenvs.in-project true
+          rm -rf poetry.lock
+          poetry install
+      # Mock deployment
+      - name: Deploy
+        run: echo "Deploying application..."

@@ -10,8 +10,8 @@ models.Base.metadata.create_all(bind=engine)
 app = FastAPI()
 
 
-@app.get("/")
+@app.get("/api/v1/healthcheck")
 async def main_route():
-    return {"message": "Hey, Its me!!!"}
+    return {"message": "The API is LIVE!!"}
 
 app.include_router(router)
