@@ -11,7 +11,7 @@ app = FastAPI()
 
 
 @app.get("/api/v1/healthcheck")
-async def main_route():
+async def main_route() -> dict:
     return {"message": "The API is LIVE!!"}
 
 

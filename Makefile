@@ -4,6 +4,7 @@ poetry-venv:
 .PHONY: lint
 lint:
 	poetry run ruff check app/ tests/
+	poetry run mypy app/ tests/
 
 .PHONY: format
 format:
@@ -12,6 +13,9 @@ format:
 .PHONY: test
 test:
 	poetry run pytest tests
+
+.PHONY: build
+build: lint test
 
 .PHONY: run
 run:

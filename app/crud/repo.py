@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 from .. import models, schemas
 
 
-def get_user_by_email(db: Session, email: str):
+def get_user_by_email(db: Session, email: str) -> schemas.User | None:
     return db.query(models.User).filter(models.User.email == email).first()
 
 
