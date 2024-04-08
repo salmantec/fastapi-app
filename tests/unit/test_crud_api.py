@@ -3,7 +3,8 @@ from fastapi.testclient import TestClient
 
 os.environ["DATABASE_URL"] = "sqlite:////tmp/test.db"
 
-from app.main import app
+from app.main import app  # noqa: E402
+
 client = TestClient(app)
 
 

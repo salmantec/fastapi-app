@@ -2,7 +2,13 @@
 name: Build and test
 
 # When should this workflow run
-on: [push, workflow_dispatch]
+on:
+  workflow_dispatch:
+
+  push:
+    branches:
+      - dev
+      - main
 
 # Jobs under this workflow
 jobs:

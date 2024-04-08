@@ -14,4 +14,5 @@ app = FastAPI()
 async def main_route():
     return {"message": "The API is LIVE!!"}
 
+
 app.include_router(router)
