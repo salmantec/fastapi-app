@@ -29,6 +29,11 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11.4'
+      - name: Cache dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pypoetry
+          key: deps-poetry-modules-${{ hashFiles('**/poetry.lock') }}
         # Install dependencies
         # As previous step installs PIP as inbuilt, here uses poetry for venv
       - name: Install dependencies

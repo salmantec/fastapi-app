@@ -19,4 +19,4 @@ build: lint test
 
 .PHONY: run
 run:
-	poetry run uvicorn app.main:app
+	poetry run gunicorn -w 1 -k uvicorn.workers.UvicornWorker app.main:app
